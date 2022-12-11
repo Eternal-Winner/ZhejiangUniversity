@@ -1,0 +1,5 @@
+# ninja log v5
+0	281	1664516181683492765	CMakeFiles/Isomorphism_of_trees.dir/main.cpp.o	8e3abf52de014761
+2	225	1664516220134906868	CMakeFiles/Isomorphism_of_trees.dir/Function.cpp.o	cf95ee6d92876980
+2	230	1664516220140837104	CMakeFiles/Isomorphism_of_trees.dir/main.cpp.o	8e3abf52de014761
+230	273	1664516220184428276	Isomorphism_of_trees	d911c5be8dc88dc5

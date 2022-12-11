@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+int maxSubseqSum1(int A[],int num,int result[]);
+
+int main(void)
+{
+    int num, numArray[100000],* result[3];
+
+    cin >> num ;
+    for(int i = 0;i < num;i++){
+        cin >> numArray[i];
+    }
+    maxSubseq = maxSubseqSum1(numArray,num,*result);
+    cout << maxSubseq[0]<<" "<< maxSubseq[1] <<" "<<maxSubseq[2];
+
+    return 0;
+}
+
+int maxSubseqSum1(int A[],int num,int result[])
+{
+    int ThisSum,MaxSum;
+    int front,tail;
+    int i;
+    ThisSum = MaxSum = 0;
+    front = A[0];
+    for(i = 0; i < num; i++){
+        ThisSum += A[i];
+        if(ThisSum > MaxSum){
+            MaxSum = ThisSum;
+            tail = A[i];
+        }
+        else if(ThisSum < 0){
+            ThisSum = 0;
+            front = A[i+1];
+            tail = A[i+1];
+        }
+    }
+
+    if(MaxSum < 0){
+        MaxSum = 0;
+        front = A[0];
+        tail = A[num-1];
+    }
+
+
+    return MaxSum;
+}

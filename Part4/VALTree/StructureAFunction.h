@@ -1,0 +1,130 @@
+//
+// Created by 方浩铭 on 2022/10/13.
+//
+
+#include <iostream>
+using namespace std;
+
+#ifndef VALTREE_STRUCTUREAFUNCTION_H
+#define VALTREE_STRUCTUREAFUNCTION_H
+#define ElementType int
+
+#endif //VALTREE_STRUCTUREAFUNCTION_H
+
+
+typedef struct AVLNode* Position;
+typedef Position AVLTree;
+struct AVLNode {
+    ElementType Data;
+    AVLTree Left;
+    AVLTree Right;
+    int Height;
+};
+
+AVLTree BuiltTree();
+AVLTree Insert(AVLTree T,ElementType Data);
+AVLTree SingleLeftRotation(AVLTree T);
+AVLTree DoubleLeftRightRotation(AVLTree T);
+AVLTree SingleRightRotation(AVLTree T);
+AVLTree DoubleRightLeftRotation(AVLTree T);
+int GetHeight(AVLTree T);
+int Max(int A, int B);
+
+
+AVLTree BuiltTree()
+{
+    int count;
+    ElementType Data;
+    AVLTree T = nullptr;
+    cin >> count;
+
+    while (count){
+        cin >> Data;
+        T = Insert(T,Data);
+        count -= 1;
+    }
+    return T;
+}
+AVLTree Insert(AVLTree T,ElementType Data)
+{
+    if (!T){ //if T is empty, creating a tree and returning it root node;
+        T = new AVLNode;
+        T->Data = Data;
+        T->Height = 0;
+        T->Left =T->Right = nullptr;
+    }
+    else if(Data < T->Data){
+        //插入左子子树
+        T->Left = Insert(T->Left,Data);
+        //If you need Left Rotation.
+        if(GetHeight(T->Left) - GetHeight(T->Right) == 2){
+            if(Data < T->Left->Data)
+                T = SingleLeftRotation(T);
+            else
+                T = DoubleLeftRightRotation(T);
+        }
+    }
+    else if(Data > T->Data){
+        //Inserting to Right Rotation
+        T->Right = Insert(T->Right,Data);
+        //If need Left Rotation
+        if(GetHeight(T->Left) - GetHeight(T->Right) == -2){
+            if(Data > T->Right->Data)
+                T = SingleRightRotation(T);
+            else
+                T = DoubleRightLeftRotation(T);
+        }
+    }
+
+    T->Height = Max(GetHeight(T->Left), GetHeight(T->Right)) + 1;
+
+    return T;
+}
+AVLTree SingleLeftRotation(AVLTree T)
+{
+    AVLTree temp;
+    temp = T->Left;
+    T->Left = temp->Right;
+    temp->Right = T;
+    T->Height = Max(GetHeight(T->Left), GetHeight(T->Right)) + 1;
+    temp->Height = Max(GetHeight(temp->Left),T->Height) + 1;
+
+    return temp;
+}
+AVLTree DoubleLeftRightRotation(AVLTree T)
+{
+    T->Left = SingleRightRotation(T->Left);
+
+    return SingleLeftRotation(T);
+;}
+AVLTree SingleRightRotation(AVLTree T)
+{
+    AVLTree temp;
+    temp = T->Right;
+    T->Right = temp->Left;
+    temp->Left = T;
+    T->Height = Max(GetHeight(T->Left), GetHeight(T->Right)) + 1;
+    temp->Height = Max(T->Height, GetHeight(temp->Right)) + 1;
+
+    return temp;
+}
+AVLTree DoubleRightLeftRotation(AVLTree T)
+{
+    T->Right = SingleLeftRotation(T->Right);
+
+    return SingleRightRotation(T);
+}
+int GetHeight(AVLTree T)
+{
+    if(T == NULL) return 0;
+    else{
+        int m = GetHeight(T->Left);
+        int n = GetHeight(T->Right);
+        return (m > n) ? (m+1):(n+1);
+    }
+}
+int Max(int a, int b)
+{
+    return a > b ? a:b;
+}
+

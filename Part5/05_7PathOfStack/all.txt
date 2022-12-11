@@ -1,0 +1,99 @@
+将一系列给定数字依次插入一个初始为空的小顶堆H[]。随后对任意给定的下标i，打印从H[i]到根结点的路径。
+
+输入格式:
+每组测试第1行包含2个正整数N和M(≤1000)，分别是插入元素的个数、以及需要打印的路径条数。下一行给出区间[-10000, 10000]内的N个要被插入一个初始为空的小顶堆的整数。最后一行给出M个下标。
+
+输出格式:
+对输入中给出的每个下标i，在一行中输出从H[i]到根结点的路径上的数据。数字间以1个空格分隔，行末不得有多余空格。
+
+EX Input
+5 3
+46 23 26 24 10
+5 4 3
+
+EX Output
+24 23 10
+46 23 10
+26 10
+
+#include <iostream>
+#include <stdint.h>
+
+using namespace std;
+
+#define ElementType int
+#define MaxSize  1000
+
+typedef struct HeapStruct *MinHeap;
+struct HeapStruct{
+    ElementType* Element;
+    int Size;
+    int Capacity;
+};
+
+MinHeap CreatHeap(void);
+bool Insert(MinHeap MH,ElementType Data);
+void Output(MinHeap MH,int i);
+
+int main() {
+    MinHeap MH;
+    int N, M, i;
+    ElementType data;
+    MH = CreatHeap();
+
+    cin >> N >> M;
+
+    while (N > 0){
+        cin >> data;
+        Insert(MH,data);
+
+        N -= 1;
+    }
+
+    while (M > 0){
+        cin >> i;
+        Output(MH,i);
+        M -= 1;
+        if(M) cout <<endl;
+    }
+}
+
+MinHeap CreatHeap(void )
+{//Creating empty MinHeap with  MaxSize Capacity
+    MinHeap MH = new HeapStruct;
+    MH->Element = new ElementType[MaxSize+1]; // ((MaxSize + 1) * sizeof (ElementType))
+    MH->Size = 0;
+    MH->Capacity = MaxSize;
+    MH->Element[0] = INT16_MIN;
+    //Defining guard that bigger than all element exist in MH->Element;
+
+    return MH;
+}
+
+bool Insert(MinHeap MH,ElementType Data)
+{
+    int i;
+
+    if(MH->Size >= MH->Capacity) {
+        cout << "HeapIsFull";
+        return false;
+    }
+    i = ++MH->Size;     //The i points out last member of stack;
+    for(;MH->Element[i/2] > Data;i /= 2){
+        MH->Element[i] = MH->Element[i/2];
+    }
+    MH->Element[i] = Data;
+
+    return true;
+
+}
+void Output(MinHeap MH,int i)
+{
+    if(!i) return;
+    else{
+        for(;i > 0;i /= 2){
+            cout << MH->Element[i];
+            if(i/2 > 0) cout << " ";
+        }
+    }
+}

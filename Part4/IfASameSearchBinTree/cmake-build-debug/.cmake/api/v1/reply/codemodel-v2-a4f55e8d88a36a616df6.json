@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "IfASameSearchBinTree",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "IfASameSearchBinTree::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-IfASameSearchBinTree-Debug-cd0bc1eed3b5b1a61997.json",
+					"name" : "IfASameSearchBinTree",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/fanghaoming/Documents/Dream/DataStructure/ZheUniversity/Part4/IfASameSearchBinTree/cmake-build-debug",
+		"source" : "/Users/fanghaoming/Documents/Dream/DataStructure/ZheUniversity/Part4/IfASameSearchBinTree"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "07_Grap4_HarryPotter_sTest",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "07_Grap4_HarryPotter_sTest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-07_Grap4_HarryPotter_sTest-Debug-37a0d4d5a365a39be0bb.json",
+					"name" : "07_Grap4_HarryPotter_sTest",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/fanghaoming/Documents/A_DREAM/DataStructure/ZheUniversity/Part7/07-Grap4_HarryPotter'sTest/cmake-build-debug",
+		"source" : "/Users/fanghaoming/Documents/A_DREAM/DataStructure/ZheUniversity/Part7/07-Grap4_HarryPotter'sTest"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+typedef int ElementType;
+typedef struct TreeNode* BinTree;
+struct TreeNode {
+    ElementType Data;
+    BinTree Left;
+    BinTree Right;
+};
+
+BinTree BuildTree(int N);
+BinTree Insert(BinTree BST, ElementType X);
+bool Judge(BinTree real, BinTree temp);
+
+int main() {
+    int N,L;
+    BinTree real,temp;
+    cin >> N >> L;
+    while(N){
+        real = BuildTree(N);
+        while (L > 0){
+            temp = BuildTree(N);
+            if(Judge(real,temp)) cout << "Yes";
+            else cout <<"No";
+            L -= 1;
+            if(L > 0) cout << endl;
+        }
+        cin >> N >> L;
+        if(N) cout << endl;
+    }
+
+}
+
+BinTree BuildTree(int N)
+{
+    int data;
+    BinTree BST = nullptr;
+    while(N > 0){
+        cin >> data;
+        BST = Insert(BST,data);
+        N--;
+    }
+
+    return BST;
+}
+
+BinTree Insert(BinTree BST, ElementType X)
+{
+    if( !BST ){//If the tree is empty,creating and returning the root node of BinaryTree.
+        BST = new TreeNode;
+        BST->Data = X;
+        BST->Right = BST->Left = nullptr;
+    }
+    else{
+        if( X < BST->Data)
+            BST->Left = Insert(BST->Left,X);
+        else if(X > BST->Data)
+            BST->Right = Insert(BST->Right,X);
+        else    ;
+    }
+    return BST;
+}
+
+bool Judge(BinTree real, BinTree temp)
+{
+    if((!real) && (!temp))
+        return true; //Both real & temp is nullptr
+    else if( ((real == nullptr) && (temp != nullptr)) || ((real != nullptr) && (temp == nullptr)) )
+        return false;
+    else{//((real != nullptr) && (temp != nullptr))
+        if(real->Data == temp->Data)
+            return (Judge(real->Right ,temp->Right) && Judge(real->Left,temp->Left));
+        else
+            return false;
+    }
+}
+

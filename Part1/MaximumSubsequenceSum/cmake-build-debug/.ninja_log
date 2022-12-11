@@ -1,0 +1,19 @@
+# ninja log v5
+0	445	1663865494235360968	CMakeFiles/MaximumSubsequenceSum.dir/main.cpp.o	533d515bd3636a53
+446	528	1663865494321682988	MaximumSubsequenceSum	edef7f0a8ce2d258
+4	429	1663866931474726001	CMakeFiles/MaximumSubsequenceSum.dir/main.cpp.o	533d515bd3636a53
+429	504	1663866931544153210	MaximumSubsequenceSum	edef7f0a8ce2d258
+1	360	1663867143981746114	CMakeFiles/MaximumSubsequenceSum.dir/main.cpp.o	533d515bd3636a53
+360	401	1663867144025754015	MaximumSubsequenceSum	edef7f0a8ce2d258
+1	253	1663867535960604751	CMakeFiles/MaximumSubsequenceSum.dir/main.cpp.o	533d515bd3636a53
+253	295	1663867536003263441	MaximumSubsequenceSum	edef7f0a8ce2d258
+1	360	1663867814014863025	CMakeFiles/MaximumSubsequenceSum.dir/main.cpp.o	533d515bd3636a53
+360	402	1663867814058219639	MaximumSubsequenceSum	edef7f0a8ce2d258
+1	412	1663894832605324110	CMakeFiles/MaximumSubsequenceSum.dir/main.cpp.o	533d515bd3636a53
+412	484	1663894832677350782	MaximumSubsequenceSum	edef7f0a8ce2d258
+1	357	1663895045420735545	CMakeFiles/MaximumSubsequenceSum.dir/main.cpp.o	533d515bd3636a53
+357	436	1663895045502226158	MaximumSubsequenceSum	edef7f0a8ce2d258
+1	379	1663895604259743498	CMakeFiles/MaximumSubsequenceSum.dir/main.cpp.o	533d515bd3636a53
+379	423	1663895604305283065	MaximumSubsequenceSum	edef7f0a8ce2d258
+1	382	1663895861367129359	CMakeFiles/MaximumSubsequenceSum.dir/main.cpp.o	533d515bd3636a53
+383	425	1663895861411651509	MaximumSubsequenceSum	edef7f0a8ce2d258

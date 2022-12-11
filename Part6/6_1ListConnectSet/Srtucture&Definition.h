@@ -1,0 +1,204 @@
+//
+// Created by 方浩铭 on 2022/10/18.
+//
+
+#ifndef INC_6_1LISTCONNECTSET_SRTUCTURE_DEFINITION_H
+#define INC_6_1LISTCONNECTSET_SRTUCTURE_DEFINITION_H
+
+#endif //INC_6_1LISTCONNECTSET_SRTUCTURE_DEFINITION_H
+
+#include <iostream>
+using namespace std;
+
+#define MaxVertexNum 11
+#define MaxSize 7
+typedef int WeightType;
+typedef int Vertex;
+bool DFS_Visited[11];
+bool BFS_Visited[11];
+
+typedef struct GraphNode* PtrToGNode;
+struct GraphNode{
+    int Nv; //Number of Vertex
+    int Ne; //Number of Edge
+    WeightType G[MaxVertexNum][MaxVertexNum];
+};
+typedef PtrToGNode MGraph;
+
+typedef struct Queue* PtrQ;
+struct Queue{
+    int front;
+    int rear;
+    int Data[MaxSize];
+}Que;
+
+MGraph CreatGraph(int VertexNum,int EdgeNum);
+void InsertEdge(MGraph Graph,int V1,int V2);
+MGraph BuildGraph(void);
+void DFS(MGraph MG, Vertex V);
+void BFS(MGraph MG, Vertex V);
+void ListComponents_BFS(MGraph MG);
+void ListComponents_DFS(MGraph MG);
+void Visit(MGraph MG,Vertex V);
+PtrQ InitialQueue(void);
+int  DeleteTerm(PtrQ Q);
+void InsertTerm(PtrQ Q,int term);
+bool IsEmpty(PtrQ Q);
+
+MGraph CreatGraph(int VertexNum,int EdgeNum)
+{
+    Vertex V,W;
+    MGraph Graph;
+
+    Graph = (MGraph)(new GraphNode);
+    Graph->Nv = VertexNum;
+    Graph->Ne = EdgeNum;
+    for(V = 0;V < Graph->Nv;V++)
+        for(W = 0; W < Graph->Nv; W++)
+            Graph->G[V][W] = 0;
+    return Graph;
+}
+
+void InsertEdge(MGraph Graph,int V1,int V2)
+{
+    Graph->G[V1][V2] = 1;
+    Graph->G[V2][V1] = 1;
+}
+
+MGraph BuildGraph(void)
+{
+    int verNum, edgeNum;
+    WeightType V1,V2;
+    cin >> verNum >> edgeNum;
+    MGraph Graph = CreatGraph(verNum,edgeNum);
+
+    for(;edgeNum > 0; edgeNum--){
+        cin >> V1 >> V2;
+        InsertEdge(Graph, V1, V2);
+    }
+
+    for(int vi = 0; vi < verNum; vi++){
+        DFS_Visited[vi] = false;
+        BFS_Visited[vi] = false;
+    }
+
+    return Graph;
+}
+
+void ListComponents_BFS(MGraph MG)
+{
+    for(int i = 0;i < MG->Nv;i++){
+        if(!BFS_Visited[i]){//if current Ver not visited.
+            cout << "{ ";
+            BFS(MG,i);
+            cout << " }" << endl;
+        }
+    }
+}
+
+void ListComponents_DFS(MGraph MG)
+{
+    for(int V = 0;V < MG->Nv;V++){
+        if(!DFS_Visited[V]){//if current Ver not visited.
+            cout << "{ ";
+            DFS(MG,i);
+            cout << "}" << endl;
+        }
+    }
+}
+
+void DFS(MGraph MG, Vertex V)
+{
+    Visit(MG,V);
+    DFS_Visited[V] = true;
+    cout << " ";
+
+    for(int i = 0;i < MG->Nv;i++){
+        if(MG->G[V][i] && !DFS_Visited[i])
+            DFS(MG,i);
+    }
+}
+
+void BFS(MGraph MG, Vertex V)
+{
+    PtrQ Q = InitialQueue();
+    Vertex V1, V2;
+
+    Visit(MG,V);
+    BFS_Visited[V] = true;
+    InsertTerm(Q,V);
+
+    while (!IsEmpty(Q)){
+        V1 = DeleteTerm(Q);
+        for(V2 =0;V2 < MG->Nv;V2++) {
+            if(!BFS_Visited[V2] && MG->G[V1][V2]){
+                cout << " ";
+                Visit(MG,V2);
+                BFS_Visited[V2] = true;
+                InsertTerm(Q,V2);
+            }
+        }
+    }
+}
+
+void Visit(MGraph MG,Vertex V)
+{
+    cout << V;
+}
+
+PtrQ InitialQueue(void)
+{
+    PtrQ Q = new Queue;
+    Q->front = Q->rear = -1;
+    for(int i = 0;i < MaxSize;i++) Q->Data[i] = -1;
+
+    return Q;
+}
+void InsertTerm(PtrQ Q,int term)
+{
+    if((Q->rear+1) % MaxSize == Q->front  ){cout << "Queue is full."; return;}
+    else{
+        Q->rear = (Q->rear + 1) % MaxSize;
+        Q->Data[Q->rear] = term;
+    }
+}
+int DeleteTerm(PtrQ Q)
+{
+    if(Q->rear == Q->front)  {cout << "Queue is empty."; return -1;}
+    else{
+        Q->front = (Q->front + 1) % MaxSize;
+        return Q->Data[Q->front];
+    }
+}
+
+bool IsEmpty(PtrQ Q)
+{
+    if(Q->rear == Q->front) return true;
+    else return false;
+}
+
+/*
+ void BFS(MGraph MG, Vertex V)
+{
+    WeightType Queue[MaxVertexNum];
+    for(int i = 0;i < MaxVertexNum;i++) Queue[i] = -1;
+    int length = 0; //The length of Queue
+    Vertex V1, V2;
+
+    Visit(MG,V);
+    BFS_Visited[V] = true;
+    Queue[length++ % MaxVertexNum] = V;
+
+    while (length != 0){
+        V1 = Queue[--length];
+        for(V2 =0;V2 < MG->Nv;V2++) {
+            if(!BFS_Visited[V2] && MG->G[V1][V2]){
+                cout << " ";
+                Visit(MG,V2);
+                BFS_Visited[V2] = true;
+                Queue[length++ % MaxVertexNum] = V2;
+            }
+        }
+    }
+}
+ */

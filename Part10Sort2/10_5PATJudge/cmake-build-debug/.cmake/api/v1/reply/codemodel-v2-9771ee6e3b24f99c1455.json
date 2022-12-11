@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "10_5PATJudge",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "10_5PATJudge::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-10_5PATJudge-Debug-205d9b9d240ad30edfa3.json",
+					"name" : "10_5PATJudge",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/fanghaoming/Documents/Dream/DataStructure/ZheUniversity/Part10Sort2/10_5PATJudge/cmake-build-debug",
+		"source" : "/Users/fanghaoming/Documents/Dream/DataStructure/ZheUniversity/Part10Sort2/10_5PATJudge"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

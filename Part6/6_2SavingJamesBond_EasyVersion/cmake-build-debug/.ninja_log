@@ -1,0 +1,26 @@
+# ninja log v5
+437	492	1666247651847791985	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
+1	437	1666247651787854214	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+0	54	1666247829498738581	build.ninja	5415d6cf92dfbf4a
+4	598	1666255847438342181	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+598	651	1666255847493051099	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
+1	416	1666256264769113109	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+416	463	1666256264819458588	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
+1	252	1666256732209631045	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+253	296	1666256732254398025	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
+4	427	1666257076176427870	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+427	470	1666257076221668239	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
+1	349	1666257229873807639	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+349	390	1666257229916245343	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
+1	425	1666257593370031271	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+426	468	1666257593415077902	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
+1	352	1666257641522310760	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+352	403	1666257641575468029	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
+4	441	1666258406855839734	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+441	485	1666258406902865312	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
+4	466	1666265480411850256	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+466	513	1666265480463242764	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
+1	257	1666265708746926557	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+4	430	1666265774366791037	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+1	409	1666266061183296816	CMakeFiles/6_2SavingJamesBond_EasyVersion.dir/main.cpp.o	43e2d45aeec12020
+409	457	1666266061234020459	6_2SavingJamesBond_EasyVersion	8a0865d1f1c378d5
